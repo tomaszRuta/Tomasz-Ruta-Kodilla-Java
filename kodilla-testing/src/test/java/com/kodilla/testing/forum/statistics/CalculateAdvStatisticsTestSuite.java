@@ -40,12 +40,12 @@ public class CalculateAdvStatisticsTestSuite {
 
         when(statistics.usersNames()).thenReturn(userNames);
         when(statistics.postsCount()).thenReturn(0);
-        when(statistics.commentsCount()).thenReturn(375);
+        when(statistics.commentsCount()).thenReturn(350);
         //When
         statisticsCalculation.calculateAdvStatistics(statistics);
         //Then
         Assert.assertEquals(0, statisticsCalculation.getAverageCommentsPerPost(), 0.001);
-        Assert.assertEquals(4, statisticsCalculation.getAverageCommentsPerUser(), 0.0001);
+        Assert.assertEquals(1.75, statisticsCalculation.getAverageCommentsPerUser(), 0.0001);
         Assert.assertEquals(0, statisticsCalculation.getAveragePostsPerUser(), 0.001);
 
 
@@ -67,8 +67,8 @@ public class CalculateAdvStatisticsTestSuite {
         //When
         statisticsCalculation.calculateAdvStatistics(statistics);
         //Then
-        Assert.assertEquals(0, statisticsCalculation.getAverageCommentsPerPost(), 0.001);
-        Assert.assertEquals(0, statisticsCalculation.getAverageCommentsPerUser(), 0.001);
+        Assert.assertEquals(0.013, statisticsCalculation.getAverageCommentsPerPost(), 0.001);
+        Assert.assertEquals(0.065, statisticsCalculation.getAverageCommentsPerUser(), 0.001);
         Assert.assertEquals(5, statisticsCalculation.getAveragePostsPerUser(), 0.001);
     }
 
@@ -83,14 +83,14 @@ public class CalculateAdvStatisticsTestSuite {
         }
 
         when(statistics.usersNames()).thenReturn(userNames);
-        when(statistics.postsCount()).thenReturn(100);
+        when(statistics.postsCount()).thenReturn(1500);
         when(statistics.commentsCount()).thenReturn(0);
         //When
         statisticsCalculation.calculateAdvStatistics(statistics);
         //Then
         Assert.assertEquals(0, statisticsCalculation.getAverageCommentsPerPost(), 0.001);
         Assert.assertEquals(0, statisticsCalculation.getAverageCommentsPerUser(), 0.001);
-        Assert.assertEquals(0, statisticsCalculation.getAveragePostsPerUser(), 0.001);
+        Assert.assertEquals(7.5, statisticsCalculation.getAveragePostsPerUser(), 0.001);
     }
 
     @Test
@@ -109,9 +109,9 @@ public class CalculateAdvStatisticsTestSuite {
         //When
         statisticsCalculation.calculateAdvStatistics(statistics);
         //Then
-        Assert.assertEquals(0, statisticsCalculation.getAverageCommentsPerPost(), 0.001);
-        Assert.assertEquals(0, statisticsCalculation.getAverageCommentsPerUser(), 0.001);
-        Assert.assertEquals(0, statisticsCalculation.getAveragePostsPerUser(), 0.001);
+        Assert.assertEquals(0.5, statisticsCalculation.getAverageCommentsPerPost(), 0.001);
+        Assert.assertEquals(0.25, statisticsCalculation.getAverageCommentsPerUser(), 0.001);
+        Assert.assertEquals(0.5, statisticsCalculation.getAveragePostsPerUser(), 0.001);
     }
 
      @Test
@@ -131,8 +131,8 @@ public class CalculateAdvStatisticsTestSuite {
         statisticsCalculation.calculateAdvStatistics(statistics);
         //Then
         Assert.assertEquals(2, statisticsCalculation.getAverageCommentsPerPost(), 0.001);
-        Assert.assertEquals(0, statisticsCalculation.getAverageCommentsPerUser(), 0.001);
-        Assert.assertEquals(0, statisticsCalculation.getAveragePostsPerUser(), 0.001);
+        Assert.assertEquals(0.6, statisticsCalculation.getAverageCommentsPerUser(), 0.001);
+        Assert.assertEquals(0.3, statisticsCalculation.getAveragePostsPerUser(), 0.001);
     }
 
     @Test
@@ -147,7 +147,7 @@ public class CalculateAdvStatisticsTestSuite {
         //When
         statisticsCalculation.calculateAdvStatistics(statistics);
         //Then
-        Assert.assertEquals(4, statisticsCalculation.getAverageCommentsPerPost(), 0.001);
+        Assert.assertEquals(4.15, statisticsCalculation.getAverageCommentsPerPost(), 0.001);
         Assert.assertEquals(0, statisticsCalculation.getAverageCommentsPerUser(), 0.001);
         Assert.assertEquals(0, statisticsCalculation.getAveragePostsPerUser(), 0.001);
     }
@@ -163,14 +163,14 @@ public class CalculateAdvStatisticsTestSuite {
         }
 
         when(statistics.usersNames()).thenReturn(userNames);
-        when(statistics.postsCount()).thenReturn(567);
-        when(statistics.commentsCount()).thenReturn(486);
+        when(statistics.postsCount()).thenReturn(550);
+        when(statistics.commentsCount()).thenReturn(450);
         //When
         statisticsCalculation.calculateAdvStatistics(statistics);
         //Then
-        Assert.assertEquals(0, statisticsCalculation.getAverageCommentsPerPost(), 0.001);
-        Assert.assertEquals(2, statisticsCalculation.getAverageCommentsPerUser(), 0.001);
-        Assert.assertEquals(2, statisticsCalculation.getAveragePostsPerUser(), 0.001);
+        Assert.assertEquals(0.8181818181818182, statisticsCalculation.getAverageCommentsPerPost(), 0.001);
+        Assert.assertEquals(2.25, statisticsCalculation.getAverageCommentsPerUser(), 0.001);
+        Assert.assertEquals(2.75, statisticsCalculation.getAveragePostsPerUser(), 0.001);
     }
 }
 

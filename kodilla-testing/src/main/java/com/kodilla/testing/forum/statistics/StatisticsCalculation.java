@@ -44,17 +44,17 @@ public class StatisticsCalculation {
         if (numberOfUsers == 0) {
             averagePostsPerUser = 0;
         } else {
-            averagePostsPerUser = numberOfPosts / numberOfUsers;
+            averagePostsPerUser = numberOfPosts / (double)numberOfUsers;
         }
         if (numberOfUsers == 0) {
             averagePostsPerUser = 0;
         } else {
-            averageCommentsPerUser = numberOfComments / numberOfUsers;
+            averageCommentsPerUser = numberOfComments / (double)numberOfUsers;
         }
         if (numberOfPosts == 0) {
             averagePostsPerUser = 0;
         } else {
-            averageCommentsPerPost = numberOfComments / numberOfPosts;
+            averageCommentsPerPost = numberOfComments / (double)numberOfPosts;
         }
     }
         public void showStatistics() {
