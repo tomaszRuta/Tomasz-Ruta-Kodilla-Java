@@ -29,7 +29,7 @@ public class CalculateAdvStatisticsTestSuite {
     }
 
     @Test
-    public void CalculatingAdvStatisticsWithMockZeroPosts() {
+    public void calculatingAdvStatisticsWithMockZeroPosts() {
         //Given
         Statistics statistics = mock(Statistics.class);
         StatisticsCalculation statisticsCalculation = new StatisticsCalculation(statistics);
@@ -40,17 +40,19 @@ public class CalculateAdvStatisticsTestSuite {
 
         when(statistics.usersNames()).thenReturn(userNames);
         when(statistics.postsCount()).thenReturn(0);
-        when(statistics.commentsCount()).thenReturn(800);
+        when(statistics.commentsCount()).thenReturn(375);
         //When
         statisticsCalculation.calculateAdvStatistics(statistics);
         //Then
         Assert.assertEquals(0, statisticsCalculation.getAverageCommentsPerPost(), 0.001);
         Assert.assertEquals(4, statisticsCalculation.getAverageCommentsPerUser(), 0.0001);
         Assert.assertEquals(0, statisticsCalculation.getAveragePostsPerUser(), 0.001);
+
+
     }
 
     @Test
-    public void CalculatingAdvStatisticsWithMockThousandPosts() {
+    public void alculatingAdvStatisticsWithMockThousandPosts() {
         //Given
         Statistics statistics = mock(Statistics.class);
         StatisticsCalculation statisticsCalculation = new StatisticsCalculation(statistics);
@@ -71,7 +73,7 @@ public class CalculateAdvStatisticsTestSuite {
     }
 
     @Test
-    public void CalculatingAdvStatisticsWithMockZeroComments() {
+    public void calculatingAdvStatisticsWithMockZeroComments() {
         //Given
         Statistics statistics = mock(Statistics.class);
         StatisticsCalculation statisticsCalculation = new StatisticsCalculation(statistics);
@@ -92,7 +94,7 @@ public class CalculateAdvStatisticsTestSuite {
     }
 
     @Test
-    public void CalculatingAdvStatisticsWithMockCommentsLessThanPosts() {
+    public void calculatingAdvStatisticsWithMockCommentsLessThanPosts() {
         //Given
         Statistics statistics = mock(Statistics.class);
         StatisticsCalculation statisticsCalculation = new StatisticsCalculation(statistics);
@@ -113,7 +115,7 @@ public class CalculateAdvStatisticsTestSuite {
     }
 
      @Test
-    public void CalculatingAdvStatisticsWithMockCommentsMoreThanPosts() {
+    public void calculatingAdvStatisticsWithMockCommentsMoreThanPosts() {
         //Given
         Statistics statistics = mock(Statistics.class);
         StatisticsCalculation statisticsCalculation = new StatisticsCalculation(statistics);
@@ -134,7 +136,7 @@ public class CalculateAdvStatisticsTestSuite {
     }
 
     @Test
-    public void CalculatingAdvStatisticsWithMockZeroUsers() {
+    public void calculatingAdvStatisticsWithMockZeroUsers() {
         //Given
         Statistics statistics = mock(Statistics.class);
         StatisticsCalculation statisticsCalculation = new StatisticsCalculation(statistics);
@@ -151,7 +153,7 @@ public class CalculateAdvStatisticsTestSuite {
     }
 
     @Test
-    public void CalculatingAdvStatisticsWithMockHundredUsers() {
+    public void calculatingAdvStatisticsWithMockHundredUsers() {
         //Given
         Statistics statistics = mock(Statistics.class);
         StatisticsCalculation statisticsCalculation = new StatisticsCalculation(statistics);

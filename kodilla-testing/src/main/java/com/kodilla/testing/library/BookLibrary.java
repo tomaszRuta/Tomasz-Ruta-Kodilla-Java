@@ -31,22 +31,12 @@ public class BookLibrary {
     }
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-        List<Book> list = new ArrayList<Book>();
-        LibraryUser myUser0Books = new LibraryUser("James", "Bond", "007" );
-        LibraryUser myUser1Books = new LibraryUser("Stefan", "Telefan", "001" );
-        LibraryUser myUser5Books = new LibraryUser("Jan", "Kowalski", "007" );
-
-        if (libraryUser.equals(myUser0Books)) {
-            return list;
-        } else if (libraryUser.equals(myUser1Books)) {
-            list = generateListOfNBooks(1);
-            return list;
-        } else if (libraryUser.equals(myUser5Books)) {
-            list = generateListOfNBooks(5);
-            return list;
-        } else {
-            return list;
-        }
+        return libraryDatabase.listBooksInHandsOf(libraryUser);
     }
-}
+        LibraryUser myUser0Books = new LibraryUser("James", "Bond", "007");
+        LibraryUser myUser1Books = new LibraryUser("Stefan", "Telefan", "001");
+        LibraryUser myUser5Books = new LibraryUser("Jan", "Kowalski", "007");
+
+    }
+
 

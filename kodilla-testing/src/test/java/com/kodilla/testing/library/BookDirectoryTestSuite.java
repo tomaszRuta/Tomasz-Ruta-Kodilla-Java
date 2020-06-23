@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
@@ -111,7 +111,6 @@ public class BookDirectoryTestSuite {
 
         // Then
         assertEquals(0, TheUserListOf0Books.size());
-        verify(libraryDatabaseMock, times(0)).listBooksInHandsOf(anyObject());
         assertEquals(1, TheUserListOf1Books.size());
         assertEquals(5, TheUserListOf5Books.size());
     }
