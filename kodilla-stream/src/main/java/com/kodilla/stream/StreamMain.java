@@ -1,34 +1,30 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.lambda.Executor;
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.lambda.Processor;
-import com.kodilla.stream.reference.FunctionalCalculator;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+import java.time.*;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
 
-        System.out.println("Calculating expressions with lambdas");
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
+        // Task 7.3
+        Forum theForum = new Forum();
+        Map<Integer, ForumUser> theResultMapOfUsers = theForum.getUserList().stream()
+                .filter(user -> user.getSex() == 'M')
+                .filter(user -> (Period.between(user.getDateOfBirth(), LocalDate.now()).getYears()) > 20)
+                .filter(user -> user.getNumberOfPosts() > 0)
+                .collect(Collectors.toMap(ForumUser::getUserID, user -> user));
 
-        System.out.println("Calculating expressions with method references");
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
+        System.out.println("# elements: " + theResultMapOfUsers.size());
+        theResultMapOfUsers.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue().getName() + ", " + entry.getValue().getSex() + ", " + entry.getValue().getDateOfBirth() + ", " + entry.getValue().getNumberOfPosts())
+                .forEach(System.out::println);
 
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
 
-        System.out.println(poemBeautifier.beautify("To jest tekst1", tekst1 -> tekst1.toUpperCase()));
-        System.out.println(poemBeautifier.beautify("To jest tekst2", tekst2 -> tekst2.substring(3, tekst2.length()-1)));
-        System.out.println(poemBeautifier.beautify("TO JEST DUZY TEKST3", tekst3 -> tekst3.toLowerCase()));
-        System.out.println(poemBeautifier.beautify("To jest tekst4", tekst4 -> tekst4.replace("ks", "sss")));
-        System.out.println(poemBeautifier.beautify("To jest tekst5", tekst5 -> tekst5.replace(tekst5, "123 " + tekst5 + " 321")));
+
 
     }
 }
