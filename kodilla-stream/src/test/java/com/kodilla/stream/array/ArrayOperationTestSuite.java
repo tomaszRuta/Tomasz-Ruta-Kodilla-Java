@@ -31,23 +31,5 @@ public class ArrayOperationTestSuite {
         //then
         Assert.assertEquals(expectedAverage,actulaAverage,0);
     }
-    @Test
-    public void testGetAverageWhenArrayIsEmpty() {
-        //given
-        double sum =0.0;
-        int numbers[] = generateArray(0);
-        for (int i = 0; i < numbers.length; i++) {
-            sum += numbers[i];
-        }
-        //when
-        try {
-            double expectedAverage = sum/numbers.length;
-            double actulaAverage = ArrayOperations.getAverage(numbers);
-            Assert.fail();
-        } catch (IllegalArgumentException ex) {
-        }
-        //then
-    }
-
 
 }
