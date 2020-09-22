@@ -2,7 +2,7 @@ package com.kodilla.good.patterns.challenges;
 
 import java.util.stream.Collectors;
 
-class MoviesPrinter {
+public class MoviesPrinter {
 
     public static void main(String[] args) {
         new com.kodilla.good.patterns.challenges.MoviesPrinter().printAllTitlesAndTranslationsFrom(new MovieStore());
